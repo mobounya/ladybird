@@ -291,7 +291,7 @@ double EasingStyleValue::CubicBezier::evaluate_at(double input_progress, bool) c
         // Produce more samples until we have enough.
         auto last_t = m_cached_x_samples.last().t;
         auto last_x = m_cached_x_samples.last().x;
-        while (last_x <= x && last_t < 1.0) {
+        while (last_x <= x) {
             last_t += 1. / 60.;
             auto solution = solve(last_t);
             m_cached_x_samples.append(solution);
